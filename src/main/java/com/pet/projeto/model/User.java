@@ -3,6 +3,7 @@ package com.pet.projeto.model;
 
 import com.pet.projeto.model.utils.UserStatus;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -28,7 +29,7 @@ public class User {
     @Enumerated(EnumType.STRING)
     private UserStatus UserStatus;
 
-    @OneToMany(mappedBy = "user", orphanRemoval = true)
+    @OneToMany(mappedBy = "user", orphanRemoval = true, cascade = CascadeType.ALL)
     private List<Pet> pets;
 
     public int getId() {
